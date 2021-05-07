@@ -1,4 +1,4 @@
-# Text summarization
+# Summarizer
 
 - Type of challenge: Learning
 - Duration: `2 weeks`
