@@ -34,26 +34,26 @@ A list of the following files are in this repo:
  - app.py
  - templates (folder) containing: base.html, index.html & summary.html
 
-#### README.md
+### README.md
 
 This file contains an overal description of the project.
 
-#### Webscraper.py
+### Webscraper.py
 
 First a connection with your GoogleDrive will have to be made running the first two lines of code.
 
 This file is used to scrape the html file of the text of any book you want from [Project Gutenberg](https://www.gutenberg.org/). Because there is no consistancy in html tag usage throughout the Gutenberg website for different books, the scraping of the text itself is customized for the following book: https://www.gutenberg.org/files/103/103-h/103-h.htm .
 
-#### model_testing.py
+### model_testing.py
 
 First a connection with your GoogleDrive will have to be made running the first two lines of code.
 
-Dataset
+#### Dataset
 
 Because there was no clear result to compare a book summarization, I chose to go for a different dataset called: "News Summary". This dataset can be found on Kaggle following this link: https://www.kaggle.com/sunnysai12345/news-summary?select=news_summary.csv . This file contains news articles and their human-made summaries. In this way the evaluation of the models is not made on 1 book or example, but can be tracked on overall performance on a lot of articles, with different lengths.
 ! a map <<dataset>> should be created with downloaded file "news_summary.csv" inside !
  
-File
+#### File
  
 This file first read and cleans the news_summary.csv file before usage. An df_ex will be created which contains only the cleaned text and summary of every article. (df_ab is also in this file BUT for now, remain unused. This is to check if a abstractive model would perform better is specialized cleaning of the text was performed)
 
@@ -68,26 +68,26 @@ The evaluation of the different models will be done based on the following metri
 
 The ROUGE metrics are the most familiar used metrics in evaluating text summarization models. In these cases the ROUGE metrics are based on the 1-gram, 2-gram and l-gram overlay between the model-made summary and the human summary. This means comparing the words that are used in chunks of 1 word, 2 words and longest-matched words. The higher the score, the better. The problem with kind of metrics is it that it does not really check "text-similarity" but rather if two texts are identical or not. This is why I used a second metric called: "word embedded (BERT) cosine spatial distance". In this way the words of the human and model-made summary are embedded and checked for similarity in "meaning" rather than using the same words. This solves the problem of paraphrasing that often happen in summarizations. The lower the score of this metric, the more 2 summaries are simular in "meaning". All of the models are also timed.
 
-#### app.py
+### app.py
 
 First a connection with your GoogleDrive will have to be made running the first two lines of code.
 
 This file contains a prototype of the deployment of this project. It connects the different templates found in the templates folder to create a local webpage. In this prototype ngrok is used to run Flask in Google Colabs. clicking on the 2nd link (containing "...ngrok.io") you can reach the webpage. A GenSim (extractive) model is used to perform a text pasted in the "book title" input box. After submitting a summarization will be made by this model and shown on the webpage.
 ! This app is only to give a general idea of the deployement !
 
-#### templates (folder)
+### templates (folder)
 
 This folder contains: base.html, index.html & summary.html
 
-base.html
+#### base.html
 
 This contains the "skeleton" of all current (and future) html files that are used in the webpage. 
 
-index.html
+#### index.html
 
 A simple html file containing a form to receive input (text or book title) of the user and send it to the back-end to perform a summarization on the text or a summarization of the book (based on its title).
 
-summary.html
+#### summary.html
 
 This html file shows the result of the summarization after an input is given by the user and submitted.
 
@@ -108,17 +108,17 @@ Although this repo does not solve the problem, it is a great model evaluation me
 
 ## To do
 
-#### Webscraper.py
+### Webscraper.py
 
 A more global version could be maybe achieved by looking at the UTF-8 file instead of the html of each book. This file should than be able to return the whole text of a book that can later be summarized.
 
-#### model_testing.py
+### model_testing.py
 
 The file should be adjusted so it adds the columns: "word-length", Rouge-1", "Rouge-2", "Rouge-l" and "word-embedded-cosine-spatial-distance" to the dataframe df_ex. This dataframe should then be splitted into different datasets based on the "word-length" column into short, medium and long articles. if the mean per model taken for all of the metrics for the short, medium and long articles, you can have a good grasp of the overall performance based on the length of the text AND consistancy of the model. 
 
 After this new best_models.py file containing the best models should be created.
 
-#### app.py
+### app.py
 
 The app should be linked to the best_models.py file give the best summarization based on the length of the input given by the user. Also the html files should be expanded to make it more user-friendly. CSS can also be added to beautify the webpage.
 
