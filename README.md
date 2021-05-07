@@ -96,11 +96,10 @@ This html file shows the result of the summarization after an input is given by 
 For now the files are not connected in any way. So most interesting file to use is the "model_testing.py" file. This is where different models can be fine-tuned, tested and evaluated. (the planned usage will be explained in the "To do" secion of the README.md file.)
 
 If you want to test the performance of models based on length of the text here are a few examples "row-numbers" that can be given to the input:
-
-0 - 1000 words : 3254, 14 or 17
-1001 - 2000 words : 1856, 111, 98 or 200
-2001 - 3000 words : 10, 11, 12 or 1000
-more than 3001 words : 100, 7 or 13
+ - 0 - 1000 words : 3254, 14 or 17
+ - 1001 - 2000 words : 1856, 111, 98 or 200
+ - 2001 - 3000 words : 10, 11, 12 or 1000
+ - more than 3001 words : 100, 7 or 13
 
 ## Result
 
